@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/bunkview.css' %}">
+  <title>Admin Approval Page</title>
+</head>
+<body>
+<div class="container">
+  <h2>Bunk Details Approval</h2>
+  <div class="bunk-details">
+    {% for c in x %}
+    <div class="form-group">
+
+      <p for="name">Name:{{c.2}}</p>
+    </div>
+    <div class="form-group">
+      <p for="address">Address:{{c.3}}</p>
+    </div>
+    <div class="form-group">
+      <p for="mobileNumber">Mobile Number:{{c.4}}</p>
+    </div>
+    <div class="form-group">
+      <p for="location">Location:{{c.5}}</p>
+       <div class="approval-buttons">
+         <button class="approve-btn"><a href="/adminbunkapprove?bid={{c.0}}">Approve</a></button>
+    <button class="reject-btn">Reject</button>
+  </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+</body>
+</html>

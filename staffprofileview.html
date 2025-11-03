@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/css/staffprofileview.css' %}">
+</head>
+<body>
+<section>
+<div class="image" style="background-image: url({% static 'images/Fuelanime.jpg' %}); background-size:cover;background position:centre;height:100vh">
+<div class="profile-container">
+  <div class="profile-picture">
+    <img id="preview" src="profile-picture.jpg" alt="Profile Picture"> <!-- Replace 'profile-picture.jpg' with your profile picture file -->
+  </div>
+  <div class="profile-info">
+      {% for c in x %}
+    <h2>Name:{{c.1}}</h2> <!-- Replace with staff member's name -->
+    <p>Email:{{c.2}}</p> <!-- Replace with staff member's email -->
+      <p>Mobile Number:{{c.3}}</p> <!-- Replace with staff member's mobile number -->
+       {% endfor %}
+  </div>
+  <div class="file-input">
+    <input type="file" id="fileInput" accept="image/*">
+    <label for="fileInput">Upload Picture</label>
+  </div>
+  <button class="delete-button" onclick="deleteProfilePicture()">Delete Picture</button>
+</div>
+  </div>
+  </section>
+     <script>
+        // Load profile picture from local storage if available
+        window.onload = function() {
+            var savedImage = localStorage.getItem('profilePicture');
+            if (savedImage) {
+                document.getElementById('preview').setAttribute('src', savedImage);
+            }
+        };
+
+        document.getElementById('fileInput').addEventListener('change', function() {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var imageData = event.target.result;
+                    document.getElementById('preview').setAttribute('src', imageData);
+                    // Save the image data to local storage
+                    localStorage.setItem('profilePicture', imageData);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function deleteProfilePicture() {
+            document.getElementById('preview').setAttribute('src', '');
+            // Remove the image data from local storage
+            localStorage.removeItem('profilePicture');
+            document.getElementById('fileInput').value = ''; // Clear the file input value
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('images/Fuelanime.jpg'); /* Replace 'background-image.jpg' with your image path */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background:#30333094;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.form-group span {
+  display: block;
+  padding: 5px 0;
+  font-size: 16px;
+}
+
+.approval-buttons {
+  text-align: center;
+}
+
+.approve-btn, .reject-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.approve-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.reject-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.approve-btn:hover, .reject-btn:hover {
+  opacity: 0.8;
+}
